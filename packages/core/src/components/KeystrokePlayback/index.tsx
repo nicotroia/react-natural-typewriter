@@ -14,7 +14,6 @@ export type KeystrokePlaybackProps = {
   speed?: number;
   delay?: number;
   onComplete?: () => void;
-  className?: string;
 };
 
 export const KeystrokePlayback = forwardRef(
