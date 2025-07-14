@@ -1,0 +1,19 @@
+{
+  "name": "@nicotroia/react-natural-typewriter-workspace",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter demo dev",
+    "build": "pnpm --filter core build",
+    "build:demo": "pnpm --filter demo build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
