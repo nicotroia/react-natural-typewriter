@@ -6,7 +6,6 @@ import {
   faTimesCircle,
 } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useCooldown } from "core/src/hooks/useCooldown";
 import React, { useEffect, useState } from "react";
 
 import { Button } from "@/components/Button";
@@ -14,6 +13,7 @@ import { GhostButton } from "@/components/GhostButton";
 import { Text } from "@/components/Text";
 import { cx } from "@/helpers";
 import { decodeKeystrokes, encodeKeystrokes } from "@core/helpers";
+import { useCooldown } from "@core/hooks/useCooldown";
 
 export type KeystrokeEncodedDebugProps = {
   keystrokes: string;

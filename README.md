@@ -46,113 +46,9 @@ function MyComponent() {
 }
 ```
 
-## Development
+## Generating keystrokes
 
-This project supports both **npm** and **pnpm** workspaces.
-
-### Setup
-
-```bash
-# Clone and install dependencies
-git clone https://github.com/nicotroia/react-natural-typewriter.git
-cd react-natural-typewriter
-
-# Using pnpm (recommended)
-pnpm install
-# Or npm
-npm install
-```
-
-### Development Scripts
-
-#### Start the demo app
-
-```bash
-# pnpm
-pnpm dev
-pnpm --filter demo dev
-
-# or npm
-npm run dev
-npm run dev -w demo
-```
-
-#### Build the core library
-
-```bash
-# pnpm
-pnpm build
-pnpm -F react-natural-typewriter build
-
-# or npm
-npm run build
-npm run build -w react-natural-typewriter
-```
-
-#### Build the demo app
-
-```bash
-# pnpm
-pnpm build:demo
-pnpm --filter demo build
-
-# npm
-npm run build:demo
-npm run build -w demo
-```
-
-#### Run tests
-
-```bash
-# pnpm
-pnpm test
-pnpm -r test
-
-# npm
-npm run test
-npm run test --workspaces
-```
-
-#### Lint code
-
-```bash
-# pnpm
-pnpm lint
-pnpm -r lint
-
-# npm
-npm run lint
-npm run lint --workspaces
-```
-
-### Package-specific commands
-
-#### Core package
-
-```bash
-# Build with clean
-cd packages/core
-pnpm build
-
-# Watch mode for development
-pnpm dev
-
-# Clean dist folder
-pnpm clean
-```
-
-#### Demo package
-
-```bash
-# Start development server
-cd packages/demo
-pnpm dev
-
-# Add dependencies to demo only
-pnpm add some-package
-# or from root:
-pnpm --filter demo add some-package
-```
+Run the "demo" app to record and playback keystrokes locally, or just visit this URL and copy the output.
 
 ## API
 
@@ -188,6 +84,43 @@ Keystrokes are encoded as pipe-separated key:time pairs:
 - Special keys: `<BACKSPACE>` for deletions
 - Timestamps: Relative to start time in milliseconds
 
+## Development
+
+```bash
+# Clone and install dependencies
+git clone https://github.com/nicotroia/react-natural-typewriter.git
+cd react-natural-typewriter
+
+# Using pnpm (recommended)
+pnpm install
+# Or npm
+npm install
+```
+
+### Start the demo app
+
+```bash
+# pnpm
+pnpm dev
+pnpm --filter demo dev
+
+# or npm
+npm run dev
+npm run dev -w demo
+```
+
+### Build the core library
+
+```bash
+# pnpm
+pnpm build
+pnpm -F react-natural-typewriter build
+
+# or npm
+npm run build
+npm run build -w react-natural-typewriter
+```
+
 ## Contributing
 
 1. Fork the repository
@@ -201,4 +134,4 @@ Keystrokes are encoded as pipe-separated key:time pairs:
 
 ## License
 
-MIT © [Your Name]
+MIT © Nico Troia
