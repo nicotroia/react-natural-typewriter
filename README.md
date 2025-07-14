@@ -48,7 +48,7 @@ function MyComponent() {
 
 ## Generating keystrokes
 
-Run the "demo" app to record and playback keystrokes locally, or just visit this URL and copy the output.
+Run the "demo" app to record and playback keystrokes locally, or just visit [this URL](https://react-natural-typewriter-demo.vercel.app/) and copy the output.
 
 ## API
 
