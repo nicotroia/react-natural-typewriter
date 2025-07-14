@@ -2,6 +2,8 @@
 
 A lightweight React component for recording and replaying natural typing patterns with realistic timing and mistakes.
 
+![React Natural Typewriter Demo](https://nicotroia.com/images/react-natural-typewriter.gif)
+
 ## Features
 
 - 🎯 **Record natural keystrokes** with real timing data
