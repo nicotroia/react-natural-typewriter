@@ -4,6 +4,8 @@ A lightweight React component for recording and replaying natural typing pattern
 
 ![React Natural Typewriter Demo](https://nicotroia.com/images/react-natural-typewriter.gif)
 
+**Demo and keystroke generator** available at [this URL](https://react-natural-typewriter-demo.vercel.app/).
+
 ## Features
 
 - 🎯 **Record natural keystrokes** with real timing data
@@ -15,7 +17,7 @@ A lightweight React component for recording and replaying natural typing pattern
 
 ## Project Structure
 
-This is a monorepo with two packages:
+This is a tiny monorepo with two packages:
 
 - **`packages/core/`** - The main React component library (published to npm)
 - **`packages/demo/`** - Development demo app with recording tools
@@ -48,32 +50,6 @@ function MyComponent() {
 }
 ```
 
-## Generating keystrokes
-
-Run the "demo" app to record and playback keystrokes locally, or just visit [this URL](https://react-natural-typewriter-demo.vercel.app/) and copy the output.
-
-## API
-
-### KeystrokePlayback
-
-The main component for playing back recorded keystrokes.
-
-#### Props
-
-| Prop         | Type         | Default | Description                        |
-| ------------ | ------------ | ------- | ---------------------------------- |
-| `keystrokes` | `string`     | -       | Encoded keystroke data             |
-| `speed`      | `number`     | `1.0`   | Playback speed multiplier          |
-| `delay`      | `number`     | `0`     | Initial delay before starting (ms) |
-| `onComplete` | `() => void` | -       | Callback when animation completes  |
-| `className`  | `string`     | -       | CSS class name                     |
-
-#### Ref Methods
-
-| Method             | Description                              |
-| ------------------ | ---------------------------------------- |
-| `triggerRefresh()` | Restart the animation from the beginning |
-
 ### Keystroke Format
 
 Keystrokes are encoded as pipe-separated key:time pairs:
@@ -85,6 +61,39 @@ Keystrokes are encoded as pipe-separated key:time pairs:
 - Each keystroke: `key:timestamp`
 - Special keys: `<BACKSPACE>` for deletions
 - Timestamps: Relative to start time in milliseconds
+
+## Generating keystrokes
+
+Run the "demo" app to record and playback keystrokes locally, or just visit [this URL](https://react-natural-typewriter-demo.vercel.app/) and copy the output.
+
+## API
+
+### KeystrokePlayback
+
+The main component for playing back recorded keystrokes.
+
+It renders a plain text string, so you can style it however you'd like:
+
+```tsx
+<span className="text-xl font-bold font-comic-sans">
+  <KeystrokePlayback keystrokes="..." />
+</span>
+```
+
+#### Props
+
+| Prop         | Type         | Default | Description                        |
+| ------------ | ------------ | ------- | ---------------------------------- |
+| `keystrokes` | `string`     | -       | Encoded keystroke data             |
+| `speed`      | `number`     | `1.0`   | Playback speed multiplier          |
+| `delay`      | `number`     | `0`     | Initial delay before starting (ms) |
+| `onComplete` | `() => void` | -       | Callback when animation completes  |
+
+#### Ref Methods
+
+| Method             | Description                              |
+| ------------------ | ---------------------------------------- |
+| `triggerRefresh()` | Restart the animation from the beginning |
 
 ## Development
 
