@@ -1,11 +1,18 @@
 {
   "name": "react-natural-typewriter",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "type": "module",
   "description": "Record and replay natural typing patterns with realistic timing and mistakes",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
   "files": [
     "dist"
   ],
