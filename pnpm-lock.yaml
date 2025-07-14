@@ -81,9 +81,6 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      core:
-        specifier: workspace:*
-        version: link:../core
       next:
         specifier: 15.3.5
         version: 15.3.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -96,6 +93,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
+      react-natural-typewriter:
+        specifier: workspace:*
+        version: link:../core
       react-tooltip:
         specifier: ^5.29.1
         version: 5.29.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
