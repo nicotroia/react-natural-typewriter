@@ -29,3 +29,34 @@ export const normalizeKeystrokes = (
     return { key: stroke.key, time: cumulativeTime };
   });
 };
+
+export const reconstructTextFromKeystrokes = (encoded: string): string => {
+  if (typeof encoded !== "string" || encoded.length === 0) return "";
+
+  let reconstructedText = "";
+  const keystrokeArray = encoded.split("|");
+
+  for (const item of keystrokeArray) {
+    const [key] = item.split(":");
+    if (key === "<BACKSPACE>") {
+      // Remove the last character
+      reconstructedText = reconstructedText.slice(0, -1);
+    } else if (
+      ![
+        "Shift",
+        "Meta",
+        "Control",
+        "Alt",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+      ].includes(key)
+    ) {
+      // Add the character (filter out modifier and arrow keys)
+      reconstructedText += key;
+    }
+  }
+
+  return reconstructedText;
+};

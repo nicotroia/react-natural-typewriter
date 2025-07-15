@@ -152,7 +152,7 @@ export const KeystrokeEncodedDebug: React.FC<
                   index !== savedKeystrokes.length - 1 &&
                     "border-b border-solid border-web-border-dim pb-4"
                 )}>
-                <div className="flex-1">
+                <div className="flex-1 max-h-14 overflow-scroll">
                   <Text variant="code" size="sm">
                     {encoded}
                   </Text>

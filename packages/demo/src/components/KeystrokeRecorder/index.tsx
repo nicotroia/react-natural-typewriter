@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, {
   InputHTMLAttributes,
   KeyboardEvent,
+  useEffect,
   useRef,
   useState,
 } from "react";
@@ -11,7 +12,7 @@ import { GhostButton } from "@/components/GhostButton";
 import { Text } from "@/components/Text";
 import { TextInput } from "@/components/TextInput";
 import { cx } from "@/helpers";
-import { encodeKeystrokes } from "@core/helpers";
+import { encodeKeystrokes, reconstructTextFromKeystrokes } from "@core/helpers";
 import { Keystroke } from "@core/types";
 
 export type TypingRecorderProps = {
@@ -27,8 +28,26 @@ export const KeystrokeRecorder: React.FC<TypingRecorderProps> = props => {
   const [startTime, setStartTime] = useState<number>(0);
   const [inputValue, setInputValue] = useState("");
 
+  useEffect(() => {
+    if (keystrokes) {
+      const reconstructedText = reconstructTextFromKeystrokes(keystrokes);
+      setInputValue(reconstructedText);
+      if (inputRef.current) {
+        inputRef.current.value = reconstructedText;
+      }
+    } else {
+      keystrokesRef.current = [];
+    }
+  }, [keystrokes]);
+
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Tab") return;
+
+    // Skip recording if modifier keys are pressed (Cmd+A, Ctrl+C, etc.)
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+
+    // Skip standalone modifier keys
+    if (["Meta", "Control", "Alt", "Shift"].includes(event.key)) return;
 
     const key = event.key === "Backspace" ? "<BACKSPACE>" : event.key;
     keystrokesRef.current = [

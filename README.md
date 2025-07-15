@@ -145,4 +145,4 @@ npm run build -w react-natural-typewriter
 
 ## License
 
-MIT © Nico Troia
+MIT © [Nico Troia](https://nicotroia.com)
