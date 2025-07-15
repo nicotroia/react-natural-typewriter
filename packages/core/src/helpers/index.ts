@@ -1,7 +1,13 @@
 import { Keystroke } from "@core/types";
 
 export const encodeKeystrokes = (keystrokes: Keystroke[]): string => {
-  return keystrokes.map(({ key, time }) => `${key}:${time}`).join("|");
+  return keystrokes
+    .map(({ key, time }) => {
+      // Escape pipe characters to avoid conflicts with delimiter
+      const escapedKey = key === "|" ? "<PIPE>" : key;
+      return `${escapedKey}:${time}`;
+    })
+    .join("|");
 };
 
 export const decodeKeystrokes = (encoded: string): Keystroke[] => {
@@ -9,7 +15,9 @@ export const decodeKeystrokes = (encoded: string): Keystroke[] => {
 
   return encoded.split("|").map(entry => {
     const [key, time] = entry.split(":");
-    return { key, time: parseFloat(time) };
+    // Unescape pipe characters
+    const unescapedKey = key === "<PIPE>" ? "|" : key;
+    return { key: unescapedKey, time: parseFloat(time) };
   });
 };
 
@@ -41,6 +49,9 @@ export const reconstructTextFromKeystrokes = (encoded: string): string => {
     if (key === "<BACKSPACE>") {
       // Remove the last character
       reconstructedText = reconstructedText.slice(0, -1);
+    } else if (key === "<PIPE>") {
+      // Add pipe character
+      reconstructedText += "|";
     } else if (
       ![
         "Shift",

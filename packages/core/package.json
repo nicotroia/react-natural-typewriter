@@ -1,6 +1,6 @@
 {
   "name": "react-natural-typewriter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "description": "Record and replay natural typing patterns with realistic timing and mistakes",
   "main": "dist/index.cjs",

@@ -19,8 +19,8 @@ A lightweight React component for recording and replaying natural typing pattern
 
 This is a tiny monorepo with two packages:
 
-- **`packages/core/`** - The main React component library (published to npm)
-- **`packages/demo/`** - Development demo app with recording tools
+- **`packages/core`** - The main React component library (published to npm)
+- **`packages/demo`** - Development demo app with recording tools
 
 ## Getting Started
 

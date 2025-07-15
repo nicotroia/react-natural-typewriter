@@ -56,7 +56,7 @@ export const KeystrokeEncodedDebug: React.FC<
   const handleSaveKeystrokes = () => {
     if (!keystrokes) return;
     const encodedKeystrokes = encodeKeystrokes(decodeKeystrokes(keystrokes));
-    setSavedKeystrokes(prev => [...prev, encodedKeystrokes]);
+    setSavedKeystrokes(prev => [encodedKeystrokes, ...prev]);
   };
 
   const handleRemoveKeystrokes = (index: number) => () => {
